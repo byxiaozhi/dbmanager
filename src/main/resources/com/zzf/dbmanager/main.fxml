@@ -32,10 +32,13 @@
         </ToolBar>
     </top>
     <center>
-        <SplitPane dividerPositions="0.2, 0.8">
+        <SplitPane
+                style="-fx-padding: 0;"
+                dividerPositions="0.2, 0.8"
+        >
             <AnchorPane>
                 <TreeView
-                        style="-fx-background-color:white;"
+                        style="-fx-padding: 0;"
                         AnchorPane.topAnchor="0"
                         AnchorPane.rightAnchor="0"
                         AnchorPane.bottomAnchor="0"
@@ -80,7 +83,7 @@
         </SplitPane>
     </center>
     <bottom>
-        <HBox alignment="CENTER_LEFT" prefHeight="20">
+        <HBox alignment="CENTER_LEFT" prefHeight="20" style="-fx-border-color: #C8C8C8; -fx-border-width: 1px 0 0 0;">
             <padding>
                 <Insets left="4" right="4"/>
             </padding>
