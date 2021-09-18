@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.zzf.dbmanager/com.zzf.dbmanager.HelloApplication</mainClass>
+                            <mainClass>com.zzf.dbmanager/com.zzf.dbmanager.Application</mainClass>
                         </configuration>
                     </execution>
                 </executions>
