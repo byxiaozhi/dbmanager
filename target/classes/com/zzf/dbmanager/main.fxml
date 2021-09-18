@@ -12,13 +12,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-
-<?import javafx.scene.text.Text?>
 <?import javafx.scene.control.TreeView?>
-<?import javafx.scene.layout.Border?>
 <?import javafx.scene.layout.VBox?>
+
 <BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.zzf.dbmanager.MainController">
+            fx:controller="com.zzf.dbmanager.Controller.MainController">
     <top>
         <ToolBar>
             <Button text="新建连接"/>
@@ -28,7 +26,7 @@
             <Button text="函数"/>
             <Button text="查询"/>
             <Pane HBox.hgrow="ALWAYS"/>
-            <Button text="关于"/>
+            <Button text="关于" onAction="#OpenAboutWindow"/>
         </ToolBar>
     </top>
     <center>
