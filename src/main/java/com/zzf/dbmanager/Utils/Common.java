@@ -1,7 +1,10 @@
 package com.zzf.dbmanager.Utils;
 
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Control;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -21,5 +24,18 @@ public class Common {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    }
+
+    public static void closeEventSourceWindow(Event event){
+        ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+    }
+
+    public static void setVerification(Control control, boolean success) {
+        var styleClass = control.getStyleClass();
+        if (success)
+            styleClass.remove("input-error");
+        else if (!styleClass.contains("input-error")) {
+            styleClass.add("input-error");
+        }
     }
 }

@@ -19,3 +19,9 @@ ScrollPane > .viewport {
     -fx-border-color: transparent;
     -fx-padding: 0;
 }
+
+.input-error {
+    -fx-text-box-border: red;
+    -fx-focus-color: red;
+    -fx-faint-focus-color: #FF000022;
+}
