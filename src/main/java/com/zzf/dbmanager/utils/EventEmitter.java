@@ -8,9 +8,9 @@ import java.util.function.Consumer;
 
 public class EventEmitter {
 
-    public static Map<String, List<Consumer<Object>>> listenersMap = new HashMap<>();
+    public static Map<String, List<Runnable>> listenersMap = new HashMap<>();
 
-    public static void addListener(String type, Consumer<Object> listener) {
+    public static void addListener(String type, Runnable listener) {
         if (!listenersMap.containsKey(type))
             listenersMap.put(type, new ArrayList<>());
         listenersMap.get(type).add(listener);
@@ -20,14 +20,18 @@ public class EventEmitter {
         listenersMap.remove(type);
     }
 
-    public static void removeListener(String type, Consumer<Object> listener) {
+    public static void removeListener(String type, Runnable listener) {
         if (listenersMap.containsKey(type))
             listenersMap.get(type).remove(listener);
     }
 
     public static void emit(String type, Object obj) {
         if (listenersMap.containsKey(type))
-            listenersMap.get(type).forEach(l -> l.accept(obj));
+            listenersMap.get(type).forEach(Runnable::run);
+    }
+
+    public static void emit(String type) {
+        emit(type, null);
     }
 
 }

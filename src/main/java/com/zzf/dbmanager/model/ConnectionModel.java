@@ -1,13 +1,13 @@
 package com.zzf.dbmanager.model;
 
-public class SessionModel {
+public class ConnectionModel {
     private String name, type, host, username, password, extraParams;
     private int port;
 
-    public SessionModel() {
+    public ConnectionModel() {
     }
 
-    public SessionModel(String name, String type, String host, int port, String username, String password, String extraParams) {
+    public ConnectionModel(String name, String type, String host, int port, String username, String password, String extraParams) {
         this.name = name;
         this.type = type;
         this.host = host;

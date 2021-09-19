@@ -39,6 +39,7 @@
         >
             <AnchorPane styleClass="bg-white">
                 <TreeView
+                        fx:id="connectionsTree"
                         styleClass="pd-0"
                         AnchorPane.topAnchor="0"
                         AnchorPane.rightAnchor="0"
