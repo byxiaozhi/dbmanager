@@ -1,4 +1,4 @@
 package com.zzf.dbmanager.Service;
 
-public class SqlService {
+public class SQLService {
 }

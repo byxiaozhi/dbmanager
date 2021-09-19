@@ -1,5 +1,7 @@
 package com.zzf.dbmanager.Controller;
 
+import com.zzf.dbmanager.Model.SessionModel;
+import com.zzf.dbmanager.Service.SessionService;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -43,7 +45,9 @@ public class newConnectionController {
     }
 
     private boolean validateName() {
-        var success = !connectionName.getText().isBlank();
+        var sessionService = SessionService.getInstance();
+        var text = connectionName.getText();
+        var success = !text.isBlank() && !sessionService.existSession(text);
         setVerification(connectionName, success);
         return success;
     }
@@ -82,6 +86,16 @@ public class newConnectionController {
         var success = validateAll();
         if (!success)
             return;
+        var sessionService = SessionService.getInstance();
+        sessionService.addSession(new SessionModel(
+                connectionName.getText(),
+                connectionType.getValue(),
+                connectionHost.getText(),
+                parseInt(connectionPort.getText()),
+                connectionUsername.getText(),
+                connectionPassword.getText(),
+                connectionExtraParams.getText()
+        ));
         closeEventSourceWindow(event);
     }
 
