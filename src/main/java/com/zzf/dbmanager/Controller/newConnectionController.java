@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.BooleanSupplier;
 
@@ -17,12 +17,8 @@ public class newConnectionController {
     @FXML
     TextField connectionName, connectionHost, connectionPort, connectionUsername, connectionPassword, connectionExtraParams;
 
-    ArrayList<BooleanSupplier> checkFunList = new ArrayList<>() {{
-        add(() -> validateName());
-        add(() -> validateHost());
-        add(() -> validatePort());
-        add(() -> validateUsername());
-    }};
+    HashMap<TextField, BooleanSupplier> validateFunList;
+    boolean validated = false;
 
     @FXML
     ChoiceBox<String> connectionType;
@@ -34,6 +30,15 @@ public class newConnectionController {
         connectionType.setValue(connectionType.getItems().get(0));
         connectionHost.setText("localhost");
         connectionPort.setText("3306");
+        validateFunList = new HashMap<>() {{
+            put(connectionName, () -> validateName());
+            put(connectionHost, () -> validateHost());
+            put(connectionPort, () -> validatePort());
+            put(connectionUsername, () -> validateUsername());
+        }};
+        validateFunList.keySet().forEach(t -> t.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (validated) validateFunList.get(t).getAsBoolean();
+        }));
     }
 
     private boolean validateName() {
@@ -63,10 +68,11 @@ public class newConnectionController {
 
     private boolean validateAll() {
         AtomicBoolean result = new AtomicBoolean(true);
-        checkFunList.forEach(f -> {
+        validateFunList.values().forEach(f -> {
             if (!f.getAsBoolean())
                 result.set(false);
         });
+        validated = true;
         return result.get();
     }
 
