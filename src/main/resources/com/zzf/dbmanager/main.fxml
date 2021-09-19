@@ -15,8 +15,11 @@
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.ScrollPane?>
 <BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.zzf.dbmanager.Controller.MainController">
+            fx:controller="com.zzf.dbmanager.Controller.MainController"
+            stylesheets="@style.css"
+>
     <top>
         <ToolBar>
             <Button text="新建连接"/>
@@ -31,12 +34,12 @@
     </top>
     <center>
         <SplitPane
-                style="-fx-padding: 0;"
+                styleClass="pd-0"
                 dividerPositions="0.2, 0.8"
         >
-            <AnchorPane style="-fx-background-color: #FFF">
+            <AnchorPane styleClass="bg-white">
                 <TreeView
-                        style="-fx-padding: 0;"
+                        styleClass="pd-0"
                         AnchorPane.topAnchor="0"
                         AnchorPane.rightAnchor="0"
                         AnchorPane.bottomAnchor="0"
@@ -44,7 +47,7 @@
                 >
                 </TreeView>
             </AnchorPane>
-            <AnchorPane style="-fx-background-color: #FFF">
+            <AnchorPane styleClass="bg-white">
                 <TabPane
                         AnchorPane.topAnchor="0"
                         AnchorPane.rightAnchor="0"
@@ -52,36 +55,42 @@
                         AnchorPane.leftAnchor="0"
                 >
                     <Tab text="页面1">
-                        <VBox
-                                style="-fx-background-color: white;"
-                        >
-                            <Label text="1" />
+                        <VBox styleClass="bg-white">
+                            <Label text="1"/>
                         </VBox>
                     </Tab>
                     <Tab text="页面2">
-                        <VBox
-                                style="-fx-background-color: white;"
-                        >
-                            <Label text="2" />
+                        <VBox styleClass="bg-white">
+                            <Label text="2"/>
                         </VBox>
                     </Tab>
-                </TabPane>
+            </TabPane>
             </AnchorPane>
-            <AnchorPane style="-fx-background-color: #FFF">
-                <VBox
-                        style="-fx-background-color: white;"
+            <AnchorPane styleClass="bg-white">
+                <ScrollPane
+                        styleClass="bg-white, pd-0"
                         AnchorPane.topAnchor="0"
                         AnchorPane.rightAnchor="0"
                         AnchorPane.bottomAnchor="0"
                         AnchorPane.leftAnchor="0"
                 >
-                    <Label text="test" />
-                </VBox>
+                    <VBox spacing="20">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20"/>
+                        </padding>
+                        <Label text="test"/>
+                        <Label text="test"/>
+                        <Label text="test"/>
+                        <Label text="test"/>
+                        <Label text="test"/>
+                        <Label text="test"/>
+                    </VBox>
+                </ScrollPane>
             </AnchorPane>
         </SplitPane>
     </center>
     <bottom>
-        <HBox alignment="CENTER_LEFT" prefHeight="20" style="-fx-border-color: #C8C8C8; -fx-border-width: 1px 0 0 0;">
+        <HBox alignment="CENTER_LEFT" prefHeight="20" styleClass="bottom-bar">
             <padding>
                 <Insets left="4" right="4"/>
             </padding>

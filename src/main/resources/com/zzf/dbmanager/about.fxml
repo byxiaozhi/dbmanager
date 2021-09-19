@@ -9,6 +9,7 @@
 <?import javafx.geometry.Insets?>
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.zzf.dbmanager.Controller.AboutController"
+      stylesheets="@style.css"
       spacing="20"
 >
     <padding>
@@ -18,7 +19,7 @@
     <Label>作者：吉林大学 55190630 朱志放</Label>
     <HBox alignment="CENTER_LEFT">
         <Label>GitHub：</Label>
-        <Hyperlink style="-fx-border-color: transparent; -fx-padding: 0;" onAction="#openGitHubLink">
+        <Hyperlink styleClass="link" onAction="#openGitHubLink">
             https://github.com/byxiaozhi/dbmanager
         </Hyperlink>
     </HBox>
