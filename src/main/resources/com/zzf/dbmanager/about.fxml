@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -10,21 +7,22 @@
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.zzf.dbmanager.Controller.AboutController"
       stylesheets="@style.css"
-      spacing="20"
 >
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
-    <Label style="-fx-font-size: 24;">数据库管理器</Label>
-    <Label>作者：吉林大学 55190630 朱志放</Label>
-    <HBox alignment="CENTER_LEFT">
-        <Label>GitHub：</Label>
-        <Hyperlink styleClass="link" onAction="#openGitHubLink">
-            https://github.com/byxiaozhi/dbmanager
-        </Hyperlink>
-    </HBox>
+    <VBox spacing="20">
+        <Label style="-fx-font-size: 24;">数据库管理器</Label>
+        <Label>作者：吉林大学 55190630 朱志放</Label>
+        <HBox alignment="CENTER_LEFT">
+            <Label>GitHub：</Label>
+            <Hyperlink styleClass="link" onAction="#openGitHubLink">
+                https://github.com/byxiaozhi/dbmanager
+            </Hyperlink>
+        </HBox>
+    </VBox>
     <Pane VBox.vgrow="ALWAYS"/>
     <HBox alignment="CENTER_RIGHT">
-        <Button onAction="#confirm">确定</Button>
+        <Button onAction="#handleConfirm">确定</Button>
     </HBox>
 </VBox>

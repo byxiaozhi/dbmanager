@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.zzf.dbmanager.Controller.newConnectionController"
+      stylesheets="@style.css"
+>
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    <VBox spacing="20">
+        <HBox alignment="CENTER_LEFT" spacing="8">
+            <Label prefWidth="50">连接名</Label>
+            <TextField HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" spacing="8">
+            <Label prefWidth="50">类型</Label>
+            <ChoiceBox>
+            </ChoiceBox>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" spacing="8">
+            <Label prefWidth="50">主机</Label>
+            <TextField HBox.hgrow="ALWAYS"/>
+            <Label>:</Label>
+            <TextField prefWidth="54"/>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" spacing="8">
+            <Label prefWidth="50">用户名</Label>
+            <TextField HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" spacing="8">
+            <Label prefWidth="50">密码</Label>
+            <TextField HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" spacing="8">
+            <Label prefWidth="50">额外参数</Label>
+            <TextField HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </VBox>
+    <Pane VBox.vgrow="ALWAYS"/>
+    <HBox alignment="CENTER_LEFT" spacing="8">
+        <Button>测试连接</Button>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button>确定</Button>
+        <Button onAction="#handleCancel">取消</Button>
+    </HBox>
+</VBox>

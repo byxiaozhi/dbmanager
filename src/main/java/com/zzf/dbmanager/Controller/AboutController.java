@@ -6,12 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class AboutController {
 
     @FXML
-    protected void confirm(Event event) {
+    protected void handleConfirm(Event event) {
         ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
     }
 

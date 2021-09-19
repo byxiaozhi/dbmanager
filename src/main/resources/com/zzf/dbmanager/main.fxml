@@ -22,14 +22,14 @@
 >
     <top>
         <ToolBar>
-            <Button text="新建连接"/>
+            <Button text="新建连接" onAction="#openNewConnectionWindow"/>
             <Separator/>
             <Button text="表"/>
             <Button text="视图"/>
             <Button text="函数"/>
             <Button text="查询"/>
             <Pane HBox.hgrow="ALWAYS"/>
-            <Button text="关于" onAction="#OpenAboutWindow"/>
+            <Button text="关于" onAction="#openAboutWindow"/>
         </ToolBar>
     </top>
     <center>
