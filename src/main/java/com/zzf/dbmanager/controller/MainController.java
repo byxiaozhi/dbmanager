@@ -1,7 +1,6 @@
 package com.zzf.dbmanager.controller;
 
 import com.zzf.dbmanager.Application;
-import com.zzf.dbmanager.model.ConnectionModel;
 import com.zzf.dbmanager.service.ConnectionService;
 import com.zzf.dbmanager.utils.EventEmitter;
 import javafx.event.Event;
@@ -11,9 +10,10 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.function.Function;
 
 import static com.zzf.dbmanager.utils.Common.openModelWindow;
+import static java.util.stream.Collectors.toMap;
 
 public class MainController {
 
@@ -38,14 +38,13 @@ public class MainController {
         var connectionList = connectionService.getConnectionList();
         var rootItem = connectionsTree.getRoot();
         var rootItemChildren = rootItem.getChildren();
-        var oldRootItemChildren = new ArrayList<>(rootItemChildren);
+        var oldRootItemChildrenMap = rootItemChildren.stream().collect(toMap(TreeItem::getValue, Function.identity()));
         rootItemChildren.clear();
-        connectionList.forEach(s -> {
-            var connectionItem = oldRootItemChildren.stream().filter(t -> t.getValue().equals(s.getName())).findAny().orElseGet(() ->
-                    new TreeItem<>(s.getName())
-            );
-            rootItemChildren.add(connectionItem);
-        });
+        connectionList.forEach(s ->
+                rootItemChildren.add(oldRootItemChildrenMap.containsKey(s.getName())
+                        ? oldRootItemChildrenMap.get(s.getName())
+                        : new TreeItem<>(s.getName()))
+        );
     }
 
     private void connect(String connectionName) {
