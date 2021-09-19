@@ -30,9 +30,10 @@ public class newConnectionController {
     @FXML
     public void initialize() {
         connectionType.getItems().add("MySQL");
+        connectionName.setText("localhost");
         connectionType.setValue(connectionType.getItems().get(0));
-        connectionPort.setText("3306");
         connectionHost.setText("localhost");
+        connectionPort.setText("3306");
     }
 
     private boolean validateName() {
