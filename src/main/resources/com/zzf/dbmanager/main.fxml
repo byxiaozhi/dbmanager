@@ -34,7 +34,7 @@
                 style="-fx-padding: 0;"
                 dividerPositions="0.2, 0.8"
         >
-            <AnchorPane>
+            <AnchorPane style="-fx-background-color: #FFF">
                 <TreeView
                         style="-fx-padding: 0;"
                         AnchorPane.topAnchor="0"
@@ -44,7 +44,7 @@
                 >
                 </TreeView>
             </AnchorPane>
-            <AnchorPane>
+            <AnchorPane style="-fx-background-color: #FFF">
                 <TabPane
                         AnchorPane.topAnchor="0"
                         AnchorPane.rightAnchor="0"
@@ -67,7 +67,7 @@
                     </Tab>
                 </TabPane>
             </AnchorPane>
-            <AnchorPane>
+            <AnchorPane style="-fx-background-color: #FFF">
                 <VBox
                         style="-fx-background-color: white;"
                         AnchorPane.topAnchor="0"
