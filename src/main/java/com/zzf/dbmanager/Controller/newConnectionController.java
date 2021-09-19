@@ -11,6 +11,7 @@ import java.util.function.BooleanSupplier;
 
 import static com.zzf.dbmanager.Utils.Common.closeEventSourceWindow;
 import static com.zzf.dbmanager.Utils.Common.setVerification;
+import static java.lang.Integer.parseInt;
 
 public class newConnectionController {
 
@@ -55,7 +56,7 @@ public class newConnectionController {
 
     private boolean validatePort() {
         var text = connectionPort.getText();
-        var success = text.matches("[0-9]+") && Integer.parseInt(text) >= 1 && Integer.parseInt(text) <= 65535;
+        var success = text.matches("[0-9]+") && parseInt(text) >= 1 && parseInt(text) <= 65535;
         setVerification(connectionPort, success);
         return success;
     }
