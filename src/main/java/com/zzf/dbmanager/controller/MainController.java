@@ -1,6 +1,7 @@
 package com.zzf.dbmanager.controller;
 
 import com.zzf.dbmanager.Application;
+import com.zzf.dbmanager.model.ConnectionModel;
 import com.zzf.dbmanager.service.ConnectionService;
 import com.zzf.dbmanager.utils.EventEmitter;
 import javafx.event.Event;
@@ -10,6 +11,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static com.zzf.dbmanager.utils.Common.openModelWindow;
 
@@ -22,21 +24,32 @@ public class MainController {
 
     @FXML
     public void initialize() {
+        initConnectionsTree();
+    }
+
+    private void initConnectionsTree() {
+        connectionsTree.setRoot(new TreeItem<>());
+        connectionsTree.setShowRoot(false);
         updateConnectionsTree();
         EventEmitter.addListener("connectionsChange", this::updateConnectionsTree);
     }
 
     private void updateConnectionsTree() {
         var connectionList = connectionService.getConnectionList();
-        var rootItem = new TreeItem<String>("所有连接");
+        var rootItem = connectionsTree.getRoot();
         var rootItemChildren = rootItem.getChildren();
-
+        var oldRootItemChildren = new ArrayList<>(rootItemChildren);
+        rootItemChildren.clear();
         connectionList.forEach(s -> {
-            var connectionItem = new TreeItem<>(s.getName());
+            var connectionItem = oldRootItemChildren.stream().filter(t -> t.getValue().equals(s.getName())).findAny().orElseGet(() ->
+                    new TreeItem<>(s.getName())
+            );
             rootItemChildren.add(connectionItem);
         });
+    }
 
-        connectionsTree.setRoot(rootItem);
+    private void connect(String connectionName) {
+
     }
 
     @FXML

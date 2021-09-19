@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
+import static java.util.Comparator.comparing;
+
 public class ConnectionService {
 
     private static final ConnectionService mInstance = new ConnectionService();
@@ -31,7 +33,7 @@ public class ConnectionService {
     }
 
     public List<ConnectionModel> getConnectionList() {
-        return connectionMap.values().stream().toList();
+        return connectionMap.values().stream().sorted(comparing(ConnectionModel::getName)).toList();
     }
 
     public Map<String, ConnectionModel> getConnectionMap() {
