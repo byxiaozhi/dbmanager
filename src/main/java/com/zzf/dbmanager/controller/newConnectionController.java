@@ -1,18 +1,19 @@
-package com.zzf.dbmanager.Controller;
+package com.zzf.dbmanager.controller;
 
-import com.zzf.dbmanager.Model.SessionModel;
-import com.zzf.dbmanager.Service.SessionService;
+import com.zzf.dbmanager.model.SessionModel;
+import com.zzf.dbmanager.service.SessionService;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.BooleanSupplier;
 
-import static com.zzf.dbmanager.Utils.Common.closeEventSourceWindow;
-import static com.zzf.dbmanager.Utils.Common.setVerification;
+import static com.zzf.dbmanager.utils.Common.closeEventSourceWindow;
+import static com.zzf.dbmanager.utils.Common.setVerification;
 import static java.lang.Integer.parseInt;
 
 public class newConnectionController {
@@ -20,7 +21,7 @@ public class newConnectionController {
     @FXML
     TextField connectionName, connectionHost, connectionPort, connectionUsername, connectionPassword, connectionExtraParams;
 
-    HashMap<TextField, BooleanSupplier> validateFunList;
+    Map<TextField, BooleanSupplier> validateFunList;
     boolean validated = false;
 
     @FXML

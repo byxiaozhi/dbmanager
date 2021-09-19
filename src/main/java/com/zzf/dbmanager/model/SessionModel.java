@@ -1,4 +1,4 @@
-package com.zzf.dbmanager.Model;
+package com.zzf.dbmanager.model;
 
 public class SessionModel {
     private String name, type, host, username, password, extraParams;

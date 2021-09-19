@@ -1,4 +1,4 @@
-package com.zzf.dbmanager.Utils;
+package com.zzf.dbmanager.utils;
 
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;

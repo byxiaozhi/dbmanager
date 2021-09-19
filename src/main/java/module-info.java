@@ -5,6 +5,6 @@ module com.zzf.dbmanager {
 
     opens com.zzf.dbmanager to javafx.fxml;
     exports com.zzf.dbmanager;
-    exports com.zzf.dbmanager.Controller;
-    opens com.zzf.dbmanager.Controller to javafx.fxml;
+    exports com.zzf.dbmanager.controller;
+    opens com.zzf.dbmanager.controller to javafx.fxml;
 }

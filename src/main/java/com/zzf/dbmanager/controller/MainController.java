@@ -1,4 +1,4 @@
-package com.zzf.dbmanager.Controller;
+package com.zzf.dbmanager.controller;
 
 import com.zzf.dbmanager.Application;
 import javafx.event.Event;
@@ -7,7 +7,7 @@ import javafx.scene.Node;
 
 import java.io.IOException;
 
-import static com.zzf.dbmanager.Utils.Common.openModelWindow;
+import static com.zzf.dbmanager.utils.Common.openModelWindow;
 
 public class MainController {
 
