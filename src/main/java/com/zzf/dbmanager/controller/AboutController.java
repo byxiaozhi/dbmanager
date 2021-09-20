@@ -1,6 +1,6 @@
 package com.zzf.dbmanager.controller;
 
-import com.zzf.dbmanager.Application;
+import com.zzf.dbmanager.JavaFX;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 
@@ -15,6 +15,6 @@ public class AboutController {
 
     @FXML
     protected void openGitHubLink() {
-        Application.getInstance().getHostServices().showDocument("https://github.com/byxiaozhi/dbmanager");
+        JavaFX.getInstance().getHostServices().showDocument("https://github.com/byxiaozhi/dbmanager");
     }
 }

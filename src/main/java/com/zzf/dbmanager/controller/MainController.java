@@ -1,6 +1,6 @@
 package com.zzf.dbmanager.controller;
 
-import com.zzf.dbmanager.Application;
+import com.zzf.dbmanager.JavaFX;
 import com.zzf.dbmanager.service.ConnectionService;
 import com.zzf.dbmanager.utils.EventEmitter;
 import javafx.event.Event;
@@ -55,7 +55,7 @@ public class MainController {
     protected void openAboutWindow(Event event) throws IOException {
         openModelWindow(
                 ((Node) event.getSource()).getScene().getWindow(),
-                Application.class.getResource("about.fxml"),
+                JavaFX.class.getResource("about.fxml"),
                 "关于",
                 400,
                 200
@@ -66,7 +66,7 @@ public class MainController {
     protected void openNewConnectionWindow(Event event) throws IOException {
         openModelWindow(
                 ((Node) event.getSource()).getScene().getWindow(),
-                Application.class.getResource("newConnection.fxml"),
+                JavaFX.class.getResource("newConnection.fxml"),
                 "新建连接",
                 340,
                 340

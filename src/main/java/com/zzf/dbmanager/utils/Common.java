@@ -1,6 +1,7 @@
 package com.zzf.dbmanager.utils;
 
-import com.zzf.dbmanager.Application;
+import com.zzf.dbmanager.JavaFX;
+import javafx.application.Application;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -21,7 +22,7 @@ public class Common {
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         Scene scene = new Scene(fxmlLoader.load(), width, height);
         Stage stage = new Stage();
-        stage.getIcons().add(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("image/logo.png"))));
+        stage.getIcons().add(new Image(Objects.requireNonNull(JavaFX.class.getResourceAsStream("image/logo.png"))));
         stage.setTitle(title);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(owner);
