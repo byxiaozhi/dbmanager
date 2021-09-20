@@ -2,9 +2,11 @@ package com.zzf.dbmanager;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Application extends javafx.application.Application {
     private static Application mInstance;
@@ -13,6 +15,7 @@ public class Application extends javafx.application.Application {
         mInstance = this;
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("main.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        stage.getIcons().add(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("img/logo.png"))));
         stage.setTitle("数据库管理器");
         stage.setMinWidth(500);
         stage.setMinHeight(300);
