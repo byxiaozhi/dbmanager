@@ -21,7 +21,7 @@ public class Common {
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         Scene scene = new Scene(fxmlLoader.load(), width, height);
         Stage stage = new Stage();
-        stage.getIcons().add(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("img/logo.png"))));
+        stage.getIcons().add(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("image/logo.png"))));
         stage.setTitle(title);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(owner);
