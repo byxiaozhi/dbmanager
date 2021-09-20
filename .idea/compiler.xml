@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="dbmanager" target="16" />
+      <module name="dbmanager" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -6,6 +6,7 @@ import com.zzf.dbmanager.utils.EventEmitter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static java.util.Comparator.comparing;
 
@@ -33,7 +34,7 @@ public class ConnectionService {
     }
 
     public List<ConnectionModel> getConnectionList() {
-        return connectionMap.values().stream().sorted(comparing(ConnectionModel::getName)).toList();
+        return connectionMap.values().stream().sorted(comparing(ConnectionModel::getName)).collect(Collectors.toList());
     }
 
     public Map<String, ConnectionModel> getConnectionMap() {
