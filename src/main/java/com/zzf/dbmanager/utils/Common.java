@@ -38,8 +38,7 @@ public class Common {
         var styleClass = control.getStyleClass();
         if (success)
             styleClass.remove("input-error");
-        else if (!styleClass.contains("input-error")) {
+        else if (!styleClass.contains("input-error"))
             styleClass.add("input-error");
-        }
     }
 }
