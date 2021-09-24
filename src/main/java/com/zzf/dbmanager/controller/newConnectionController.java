@@ -35,6 +35,7 @@ public class newConnectionController {
         connectionType.setValue(connectionType.getItems().get(0));
         connectionHost.setText("localhost");
         connectionPort.setText("3306");
+        connectionExtraParams.setText("serverTimezone=UTC");
         validateFunList = new HashMap<>() {{
             put(connectionName, () -> validateName());
             put(connectionHost, () -> validateHost());

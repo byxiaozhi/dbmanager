@@ -17,6 +17,10 @@ public class ConnectionModel {
         this.extraParams = extraParams;
     }
 
+    public String getURL() {
+        return "jdbc:" + type + "://" + host + ":" + port + "?" + extraParams;
+    }
+
     public String getName() {
         return name;
     }
