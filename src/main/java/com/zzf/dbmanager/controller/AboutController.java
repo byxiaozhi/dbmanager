@@ -5,7 +5,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import org.springframework.stereotype.Controller;
 
-import static com.zzf.dbmanager.utils.Common.closeEventSourceWindow;
+import static com.zzf.dbmanager.JavaFX.closeEventSourceWindow;
 
 @Controller
 public class AboutController {

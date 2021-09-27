@@ -12,7 +12,7 @@ import org.springframework.stereotype.Controller;
 import java.io.IOException;
 import java.util.function.Function;
 
-import static com.zzf.dbmanager.utils.Common.openModelWindow;
+import static com.zzf.dbmanager.JavaFX.openModelWindow;
 import static java.util.stream.Collectors.toMap;
 
 @Controller
@@ -62,7 +62,7 @@ public class MainController {
     protected void openAboutWindow(Event event) throws IOException {
         openModelWindow(
                 ((Node) event.getSource()).getScene().getWindow(),
-                "view/about.fxml",
+                "about",
                 "关于"
         );
     }
@@ -71,7 +71,7 @@ public class MainController {
     protected void openNewConnectionWindow(Event event) throws IOException {
         openModelWindow(
                 ((Node) event.getSource()).getScene().getWindow(),
-                "view/newConnection.fxml",
+                "newConnection",
                 "新建连接"
         );
     }

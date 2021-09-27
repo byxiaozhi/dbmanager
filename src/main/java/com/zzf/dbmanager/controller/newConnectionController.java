@@ -5,6 +5,7 @@ import com.zzf.dbmanager.service.ConnectionService;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Controller;
 
@@ -13,8 +14,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.BooleanSupplier;
 
-import static com.zzf.dbmanager.utils.Common.closeEventSourceWindow;
-import static com.zzf.dbmanager.utils.Common.setVerification;
+import static com.zzf.dbmanager.JavaFX.closeEventSourceWindow;
 import static java.lang.Integer.parseInt;
 
 @Controller
@@ -51,6 +51,14 @@ public class newConnectionController {
         validateFunList.keySet().forEach(t -> t.textProperty().addListener((observable, oldValue, newValue) -> {
             if (validated) validateFunList.get(t).getAsBoolean();
         }));
+    }
+
+    public void setVerification(Control control, boolean success) {
+        var styleClass = control.getStyleClass();
+        if (success)
+            styleClass.remove("input-error");
+        else if (!styleClass.contains("input-error"))
+            styleClass.add("input-error");
     }
 
     private boolean validateName() {
