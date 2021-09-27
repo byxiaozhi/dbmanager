@@ -14,7 +14,7 @@ public class JavaFX extends Application {
 
     public void start(Stage stage) throws IOException {
         mInstance = this;
-        FXMLLoader fxmlLoader = new FXMLLoader(JavaFX.class.getResource("main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaFX.class.getResource("view/main.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         stage.getIcons().add(new Image(Objects.requireNonNull(JavaFX.class.getResourceAsStream("image/logo.png"))));
         stage.setTitle("数据库管理器");

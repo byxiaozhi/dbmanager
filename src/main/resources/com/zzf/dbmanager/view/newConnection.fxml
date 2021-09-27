@@ -6,7 +6,7 @@
 
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.zzf.dbmanager.controller.newConnectionController"
-      stylesheets="@style.css"
+      stylesheets="@../css/style.css"
 >
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>

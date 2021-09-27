@@ -18,7 +18,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.zzf.dbmanager.controller.MainController"
-            stylesheets="@style.css"
+            stylesheets="@../css/style.css"
 >
     <top>
         <ToolBar>

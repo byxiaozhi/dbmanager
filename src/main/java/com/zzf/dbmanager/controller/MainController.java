@@ -55,7 +55,7 @@ public class MainController {
     protected void openAboutWindow(Event event) throws IOException {
         openModelWindow(
                 ((Node) event.getSource()).getScene().getWindow(),
-                JavaFX.class.getResource("about.fxml"),
+                JavaFX.class.getResource("view/about.fxml"),
                 "关于",
                 400,
                 200
@@ -66,7 +66,7 @@ public class MainController {
     protected void openNewConnectionWindow(Event event) throws IOException {
         openModelWindow(
                 ((Node) event.getSource()).getScene().getWindow(),
-                JavaFX.class.getResource("newConnection.fxml"),
+                JavaFX.class.getResource("view/newConnection.fxml"),
                 "新建连接",
                 340,
                 340
