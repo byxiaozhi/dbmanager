@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -14,93 +13,100 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.ScrollPane?>
-<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.zzf.dbmanager.controller.MainController"
-            stylesheets="@../css/style.css"
+<?import javafx.scene.Scene?>
+
+<Scene xmlns="http://javafx.com/javafx"
+       xmlns:fx="http://javafx.com/fxml"
+       fx:controller="com.zzf.dbmanager.controller.MainController"
+       stylesheets="@../css/style.css"
+       width="1200"
+       height="700"
 >
-    <top>
-        <ToolBar>
-            <Button text="新建连接" onAction="#openNewConnectionWindow"/>
-            <Separator/>
-            <Button text="表"/>
-            <Button text="视图"/>
-            <Button text="函数"/>
-            <Button text="查询"/>
-            <Pane HBox.hgrow="ALWAYS"/>
-            <Button text="关于" onAction="#openAboutWindow"/>
-        </ToolBar>
-    </top>
-    <center>
-        <SplitPane
-                styleClass="pd-0"
-                dividerPositions="0.2, 0.8"
-        >
-            <AnchorPane styleClass="bg-white">
-                <TreeView
-                        fx:id="connectionsTree"
-                        styleClass="pd-0"
-                        AnchorPane.topAnchor="0"
-                        AnchorPane.rightAnchor="0"
-                        AnchorPane.bottomAnchor="0"
-                        AnchorPane.leftAnchor="0"
-                >
-                </TreeView>
-            </AnchorPane>
-            <AnchorPane styleClass="bg-white">
-                <TabPane
-                        AnchorPane.topAnchor="0"
-                        AnchorPane.rightAnchor="0"
-                        AnchorPane.bottomAnchor="0"
-                        AnchorPane.leftAnchor="0"
-                >
-                    <Tab text="页面1">
-                        <VBox styleClass="bg-white">
-                            <Label text="1"/>
+    <BorderPane>
+        <top>
+            <ToolBar>
+                <Button text="新建连接" onAction="#openNewConnectionWindow"/>
+                <Separator/>
+                <Button text="表"/>
+                <Button text="视图"/>
+                <Button text="函数"/>
+                <Button text="查询"/>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button text="关于" onAction="#openAboutWindow"/>
+            </ToolBar>
+        </top>
+        <center>
+            <SplitPane
+                    styleClass="pd-0"
+                    dividerPositions="0.2, 0.8"
+            >
+                <AnchorPane styleClass="bg-white">
+                    <TreeView
+                            fx:id="connectionsTree"
+                            styleClass="pd-0"
+                            AnchorPane.topAnchor="0"
+                            AnchorPane.rightAnchor="0"
+                            AnchorPane.bottomAnchor="0"
+                            AnchorPane.leftAnchor="0"
+                    >
+                    </TreeView>
+                </AnchorPane>
+                <AnchorPane styleClass="bg-white">
+                    <TabPane
+                            AnchorPane.topAnchor="0"
+                            AnchorPane.rightAnchor="0"
+                            AnchorPane.bottomAnchor="0"
+                            AnchorPane.leftAnchor="0"
+                    >
+                        <Tab text="页面1">
+                            <VBox styleClass="bg-white">
+                                <Label text="1"/>
+                            </VBox>
+                        </Tab>
+                        <Tab text="页面2">
+                            <VBox styleClass="bg-white">
+                                <Label text="2"/>
+                            </VBox>
+                        </Tab>
+                    </TabPane>
+                </AnchorPane>
+                <AnchorPane styleClass="bg-white">
+                    <ScrollPane
+                            styleClass="bg-white, pd-0"
+                            AnchorPane.topAnchor="0"
+                            AnchorPane.rightAnchor="0"
+                            AnchorPane.bottomAnchor="0"
+                            AnchorPane.leftAnchor="0"
+                    >
+                        <VBox spacing="20">
+                            <padding>
+                                <Insets top="20" right="20" bottom="20" left="20"/>
+                            </padding>
+                            <Label text="test"/>
+                            <Label text="test"/>
+                            <Label text="test"/>
+                            <Label text="test"/>
+                            <Label text="test"/>
+                            <Label text="test"/>
                         </VBox>
-                    </Tab>
-                    <Tab text="页面2">
-                        <VBox styleClass="bg-white">
-                            <Label text="2"/>
-                        </VBox>
-                    </Tab>
-            </TabPane>
-            </AnchorPane>
-            <AnchorPane styleClass="bg-white">
-                <ScrollPane
-                        styleClass="bg-white, pd-0"
-                        AnchorPane.topAnchor="0"
-                        AnchorPane.rightAnchor="0"
-                        AnchorPane.bottomAnchor="0"
-                        AnchorPane.leftAnchor="0"
-                >
-                    <VBox spacing="20">
-                        <padding>
-                            <Insets top="20" right="20" bottom="20" left="20"/>
-                        </padding>
-                        <Label text="test"/>
-                        <Label text="test"/>
-                        <Label text="test"/>
-                        <Label text="test"/>
-                        <Label text="test"/>
-                        <Label text="test"/>
-                    </VBox>
-                </ScrollPane>
-            </AnchorPane>
-        </SplitPane>
-    </center>
-    <bottom>
-        <HBox alignment="CENTER_LEFT" prefHeight="20" styleClass="bottom-bar">
-            <padding>
-                <Insets left="4" right="4"/>
-            </padding>
-            <HBox alignment="CENTER_LEFT" prefHeight="20">
-                <Label text="状态"/>
+                    </ScrollPane>
+                </AnchorPane>
+            </SplitPane>
+        </center>
+        <bottom>
+            <HBox alignment="CENTER_LEFT" prefHeight="20" styleClass="bottom-bar">
+                <padding>
+                    <Insets left="4" right="4"/>
+                </padding>
+                <HBox alignment="CENTER_LEFT" prefHeight="20">
+                    <Label text="状态"/>
+                </HBox>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <HBox alignment="CENTER_RIGHT" prefHeight="20">
+                </HBox>
             </HBox>
-            <Pane HBox.hgrow="ALWAYS"/>
-            <HBox alignment="CENTER_RIGHT" prefHeight="20">
-            </HBox>
-        </HBox>
-    </bottom>
-</BorderPane>
+        </bottom>
+    </BorderPane>
+</Scene>
+

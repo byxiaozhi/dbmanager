@@ -1,7 +1,7 @@
 package com.zzf.dbmanager.service;
 
 import com.zzf.dbmanager.model.ConnectionModel;
-import com.zzf.dbmanager.utils.EventEmitter;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,17 +10,19 @@ import java.util.stream.Collectors;
 
 import static java.util.Comparator.comparing;
 
-public class ConnectionService {
+@Service
+public class ConnectionService{
 
-    private static final ConnectionService mInstance = new ConnectionService();
-    Map<String, ConnectionModel> connectionMap = new HashMap<>();
+    EventEmitter eventEmitter;
 
-    public static ConnectionService getInstance() {
-        return mInstance;
+    public ConnectionService(EventEmitter eventEmitter) {
+        this.eventEmitter = eventEmitter;
     }
 
+    Map<String, ConnectionModel> connectionMap = new HashMap<>();
+
     public void handleConnectionsChange() {
-        EventEmitter.emit("connectionsChange", null);
+        eventEmitter.emit("connectionsChange", null);
     }
 
     public void addConnection(ConnectionModel connection) {

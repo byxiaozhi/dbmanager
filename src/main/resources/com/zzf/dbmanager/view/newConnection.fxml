@@ -1,49 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.zzf.dbmanager.controller.newConnectionController"
-      stylesheets="@../css/style.css"
+<?import javafx.scene.Scene?>
+<Scene xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+       fx:controller="com.zzf.dbmanager.controller.newConnectionController"
+       stylesheets="@../css/style.css"
+       width="340"
+       height="340"
 >
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
-    <VBox spacing="20">
+    <VBox>
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        <VBox spacing="20">
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <Label prefWidth="50">连接名</Label>
+                <TextField fx:id="connectionName" HBox.hgrow="ALWAYS"/>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <Label prefWidth="50">类型</Label>
+                <ChoiceBox fx:id="connectionType"/>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <Label prefWidth="50">主机</Label>
+                <TextField fx:id="connectionHost" HBox.hgrow="ALWAYS"/>
+                <Label>:</Label>
+                <TextField fx:id="connectionPort" prefWidth="54"/>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <Label prefWidth="50">用户名</Label>
+                <TextField fx:id="connectionUsername" HBox.hgrow="ALWAYS"/>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <Label prefWidth="50">密码</Label>
+                <PasswordField fx:id="connectionPassword" HBox.hgrow="ALWAYS"/>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <Label prefWidth="50">额外参数</Label>
+                <TextField fx:id="connectionExtraParams" HBox.hgrow="ALWAYS"/>
+            </HBox>
+        </VBox>
+        <Pane VBox.vgrow="ALWAYS"/>
         <HBox alignment="CENTER_LEFT" spacing="8">
-            <Label prefWidth="50">连接名</Label>
-            <TextField fx:id="connectionName" HBox.hgrow="ALWAYS"/>
-        </HBox>
-        <HBox alignment="CENTER_LEFT" spacing="8">
-            <Label prefWidth="50">类型</Label>
-            <ChoiceBox fx:id="connectionType" />
-        </HBox>
-        <HBox alignment="CENTER_LEFT" spacing="8">
-            <Label prefWidth="50">主机</Label>
-            <TextField fx:id="connectionHost" HBox.hgrow="ALWAYS"/>
-            <Label>:</Label>
-            <TextField fx:id="connectionPort" prefWidth="54"/>
-        </HBox>
-        <HBox alignment="CENTER_LEFT" spacing="8">
-            <Label prefWidth="50">用户名</Label>
-            <TextField fx:id="connectionUsername" HBox.hgrow="ALWAYS"/>
-        </HBox>
-        <HBox alignment="CENTER_LEFT" spacing="8">
-            <Label prefWidth="50">密码</Label>
-            <PasswordField fx:id="connectionPassword" HBox.hgrow="ALWAYS"/>
-        </HBox>
-        <HBox alignment="CENTER_LEFT" spacing="8">
-            <Label prefWidth="50">额外参数</Label>
-            <TextField fx:id="connectionExtraParams" HBox.hgrow="ALWAYS"/>
+            <Button onAction="#handleTestConnection">测试连接</Button>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button onAction="#handleConfirm">确定</Button>
+            <Button onAction="#handleCancel">取消</Button>
         </HBox>
     </VBox>
-    <Pane VBox.vgrow="ALWAYS"/>
-    <HBox alignment="CENTER_LEFT" spacing="8">
-        <Button onAction="#handleTestConnection">测试连接</Button>
-        <Pane HBox.hgrow="ALWAYS"/>
-        <Button onAction="#handleConfirm">确定</Button>
-        <Button onAction="#handleCancel">取消</Button>
-    </HBox>
-</VBox>
+</Scene>
+

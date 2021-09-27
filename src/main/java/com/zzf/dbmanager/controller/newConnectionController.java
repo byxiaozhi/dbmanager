@@ -6,6 +6,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import org.springframework.stereotype.Controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,17 +17,22 @@ import static com.zzf.dbmanager.utils.Common.closeEventSourceWindow;
 import static com.zzf.dbmanager.utils.Common.setVerification;
 import static java.lang.Integer.parseInt;
 
+@Controller
 public class newConnectionController {
 
     @FXML
     TextField connectionName, connectionHost, connectionPort, connectionUsername, connectionPassword, connectionExtraParams;
 
-    ConnectionService connectionService = ConnectionService.getInstance();
+    ConnectionService connectionService;
     Map<TextField, BooleanSupplier> validateFunList;
     boolean validated = false;
 
     @FXML
     ChoiceBox<String> connectionType;
+
+    public newConnectionController(ConnectionService connectionService) {
+        this.connectionService = connectionService;
+    }
 
     @FXML
     public void initialize() {

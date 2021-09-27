@@ -1,36 +1,38 @@
-package com.zzf.dbmanager.utils;
+package com.zzf.dbmanager.service;
+
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 
+@Service
 public class EventEmitter {
 
-    public static Map<String, List<Runnable>> listenersMap = new HashMap<>();
+    public Map<String, List<Runnable>> listenersMap = new HashMap<>();
 
-    public static void addListener(String type, Runnable listener) {
+    public void addListener(String type, Runnable listener) {
         if (!listenersMap.containsKey(type))
             listenersMap.put(type, new ArrayList<>());
         listenersMap.get(type).add(listener);
     }
 
-    public static void removeListener(String type) {
+    public void removeListener(String type) {
         listenersMap.remove(type);
     }
 
-    public static void removeListener(String type, Runnable listener) {
+    public void removeListener(String type, Runnable listener) {
         if (listenersMap.containsKey(type))
             listenersMap.get(type).remove(listener);
     }
 
-    public static void emit(String type, Object obj) {
+    public void emit(String type, Object obj) {
         if (listenersMap.containsKey(type))
             listenersMap.get(type).forEach(Runnable::run);
     }
 
-    public static void emit(String type) {
+    public void emit(String type) {
         emit(type, null);
     }
 

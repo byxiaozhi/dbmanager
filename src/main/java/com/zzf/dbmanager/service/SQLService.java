@@ -1,14 +1,17 @@
 package com.zzf.dbmanager.service;
 
 import com.zzf.dbmanager.model.ConnectionModel;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+@Service
+@Scope("prototype")
 public class SQLService {
 
     Connection connection;

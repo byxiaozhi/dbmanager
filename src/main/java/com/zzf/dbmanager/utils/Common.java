@@ -1,10 +1,10 @@
 package com.zzf.dbmanager.utils;
 
 import com.zzf.dbmanager.JavaFX;
-import javafx.application.Application;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
 import javafx.scene.image.Image;
@@ -13,25 +13,31 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.Objects;
 
 public class Common {
 
-    public static void openModelWindow(Window owner, URL url, String title, double width, double height) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(url);
-        Scene scene = new Scene(fxmlLoader.load(), width, height);
-        Stage stage = new Stage();
+    public static Scene loadFXML(String fxml) throws IOException {
+        var fxmlLoader = new FXMLLoader(JavaFX.class.getResource(fxml));
+        fxmlLoader.setControllerFactory(JavaFX.getApplicationContext()::getBean);
+        return fxmlLoader.load();
+    }
+
+    public static void openWindow(String fxml, Stage stage) throws IOException {
+        stage.setScene(loadFXML(fxml));
         stage.getIcons().add(new Image(Objects.requireNonNull(JavaFX.class.getResourceAsStream("image/logo.png"))));
-        stage.setTitle(title);
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(owner);
-        stage.setScene(scene);
-        stage.setResizable(false);
         stage.show();
     }
 
-    public static void closeEventSourceWindow(Event event){
+    public static void openModelWindow(Window owner, String fxml, String title) throws IOException {
+        openWindow(fxml, new Stage() {{
+            setTitle(title);
+            initModality(Modality.WINDOW_MODAL);
+            initOwner(owner);
+        }});
+    }
+
+    public static void closeEventSourceWindow(Event event) {
         ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
     }
 

@@ -1,13 +1,13 @@
 package com.zzf.dbmanager.controller;
 
-import com.zzf.dbmanager.JavaFX;
 import com.zzf.dbmanager.service.ConnectionService;
-import com.zzf.dbmanager.utils.EventEmitter;
+import com.zzf.dbmanager.service.EventEmitter;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.util.function.Function;
@@ -15,12 +15,19 @@ import java.util.function.Function;
 import static com.zzf.dbmanager.utils.Common.openModelWindow;
 import static java.util.stream.Collectors.toMap;
 
+@Controller
 public class MainController {
 
     @FXML
     TreeView<String> connectionsTree;
 
-    ConnectionService connectionService = ConnectionService.getInstance();
+    EventEmitter eventEmitter;
+    ConnectionService connectionService;
+
+    public MainController(EventEmitter eventEmitter, ConnectionService connectionService) {
+        this.eventEmitter = eventEmitter;
+        this.connectionService = connectionService;
+    }
 
     @FXML
     public void initialize() {
@@ -31,7 +38,7 @@ public class MainController {
         connectionsTree.setRoot(new TreeItem<>());
         connectionsTree.setShowRoot(false);
         updateConnectionsTree();
-        EventEmitter.addListener("connectionsChange", this::updateConnectionsTree);
+        eventEmitter.addListener("connectionsChange", this::updateConnectionsTree);
     }
 
     private void updateConnectionsTree() {
@@ -55,10 +62,8 @@ public class MainController {
     protected void openAboutWindow(Event event) throws IOException {
         openModelWindow(
                 ((Node) event.getSource()).getScene().getWindow(),
-                JavaFX.class.getResource("view/about.fxml"),
-                "关于",
-                400,
-                200
+                "view/about.fxml",
+                "关于"
         );
     }
 
@@ -66,10 +71,8 @@ public class MainController {
     protected void openNewConnectionWindow(Event event) throws IOException {
         openModelWindow(
                 ((Node) event.getSource()).getScene().getWindow(),
-                JavaFX.class.getResource("view/newConnection.fxml"),
-                "新建连接",
-                340,
-                340
+                "view/newConnection.fxml",
+                "新建连接"
         );
     }
 }

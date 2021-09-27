@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.geometry.Insets?>
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.zzf.dbmanager.controller.AboutController"
-      stylesheets="@../css/style.css"
+<?import javafx.scene.Scene?>
+
+<Scene xmlns="http://javafx.com/javafx"
+       xmlns:fx="http://javafx.com/fxml"
+       fx:controller="com.zzf.dbmanager.controller.AboutController"
+       stylesheets="@../css/style.css"
+       width="400"
+       height="200"
 >
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
-    <VBox spacing="20">
-        <Label style="-fx-font-size: 24;">数据库管理器</Label>
-        <Label>作者：吉林大学 55190630 朱志放</Label>
-        <HBox alignment="CENTER_LEFT">
-            <Label>GitHub：</Label>
-            <Hyperlink styleClass="link" onAction="#openGitHubLink">
-                https://github.com/byxiaozhi/dbmanager
-            </Hyperlink>
+    <VBox>
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        <VBox spacing="20">
+            <Label style="-fx-font-size: 24;">数据库管理器</Label>
+            <Label>作者：吉林大学 55190630 朱志放</Label>
+            <HBox alignment="CENTER_LEFT">
+                <Label>GitHub：</Label>
+                <Hyperlink styleClass="link" onAction="#openGitHubLink">
+                    https://github.com/byxiaozhi/dbmanager
+                </Hyperlink>
+            </HBox>
+        </VBox>
+        <Pane VBox.vgrow="ALWAYS"/>
+        <HBox alignment="CENTER_RIGHT">
+            <Button onAction="#handleConfirm">确定</Button>
         </HBox>
     </VBox>
-    <Pane VBox.vgrow="ALWAYS"/>
-    <HBox alignment="CENTER_RIGHT">
-        <Button onAction="#handleConfirm">确定</Button>
-    </HBox>
-</VBox>
+</Scene>
+
