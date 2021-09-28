@@ -13,15 +13,15 @@ import static java.util.Comparator.comparing;
 @Service
 public class ConnectionService{
 
-    EventEmitter eventEmitter;
+    EventService eventService;
     Map<String, ConnectionModel> connectionMap = new HashMap<>();
 
-    public ConnectionService(EventEmitter eventEmitter) {
-        this.eventEmitter = eventEmitter;
+    public ConnectionService(EventService eventService) {
+        this.eventService = eventService;
     }
 
     public void handleConnectionsChange() {
-        eventEmitter.emit("connectionsChange");
+        eventService.emit("connectionsChange");
     }
 
     public void addConnection(ConnectionModel connection) {

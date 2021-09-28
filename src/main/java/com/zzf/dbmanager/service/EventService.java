@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class EventEmitter {
+public class EventService {
 
     public Map<String, List<Runnable>> listenersMap = new HashMap<>();
 

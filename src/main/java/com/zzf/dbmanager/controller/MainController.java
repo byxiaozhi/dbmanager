@@ -1,7 +1,7 @@
 package com.zzf.dbmanager.controller;
 
 import com.zzf.dbmanager.service.ConnectionService;
-import com.zzf.dbmanager.service.EventEmitter;
+import com.zzf.dbmanager.service.EventService;
 import com.zzf.dbmanager.service.WindowService;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import java.io.IOException;
 import java.util.function.Function;
 
-import static com.zzf.dbmanager.JavaFX.openModelWindow;
 import static java.util.stream.Collectors.toMap;
 
 @Controller
@@ -22,12 +21,12 @@ public class MainController {
     @FXML
     TreeView<String> connectionsTree;
 
-    EventEmitter eventEmitter;
+    EventService eventService;
     WindowService windowService;
     ConnectionService connectionService;
 
-    public MainController(EventEmitter eventEmitter, WindowService windowService, ConnectionService connectionService) {
-        this.eventEmitter = eventEmitter;
+    public MainController(EventService eventService, WindowService windowService, ConnectionService connectionService) {
+        this.eventService = eventService;
         this.windowService = windowService;
         this.connectionService = connectionService;
     }
@@ -41,7 +40,7 @@ public class MainController {
         connectionsTree.setRoot(new TreeItem<>());
         connectionsTree.setShowRoot(false);
         updateConnectionsTree();
-        eventEmitter.addListener("connectionsChange", this::updateConnectionsTree);
+        eventService.addListener("connectionsChange", this::updateConnectionsTree);
     }
 
     private void updateConnectionsTree() {
