@@ -14,12 +14,11 @@ import static java.util.Comparator.comparing;
 public class ConnectionService{
 
     EventEmitter eventEmitter;
+    Map<String, ConnectionModel> connectionMap = new HashMap<>();
 
     public ConnectionService(EventEmitter eventEmitter) {
         this.eventEmitter = eventEmitter;
     }
-
-    Map<String, ConnectionModel> connectionMap = new HashMap<>();
 
     public void handleConnectionsChange() {
         eventEmitter.emit("connectionsChange", null);
