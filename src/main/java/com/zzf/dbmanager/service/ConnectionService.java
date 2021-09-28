@@ -21,7 +21,7 @@ public class ConnectionService{
     }
 
     public void handleConnectionsChange() {
-        eventEmitter.emit("connectionsChange", null);
+        eventEmitter.emit("connectionsChange");
     }
 
     public void addConnection(ConnectionModel connection) {

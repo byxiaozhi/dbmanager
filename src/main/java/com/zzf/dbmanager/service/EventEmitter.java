@@ -27,13 +27,9 @@ public class EventEmitter {
             listenersMap.get(type).remove(listener);
     }
 
-    public void emit(String type, Object obj) {
+    public void emit(String type) {
         if (listenersMap.containsKey(type))
             listenersMap.get(type).forEach(Runnable::run);
-    }
-
-    public void emit(String type) {
-        emit(type, null);
     }
 
 }
