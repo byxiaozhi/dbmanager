@@ -38,7 +38,7 @@ public class JavaFX extends Application {
 
     public static Scene loadFXML(String fxml) throws IOException {
         var fxmlLoader = new FXMLLoader(JavaFX.class.getResource(fxml));
-        fxmlLoader.setControllerFactory(JavaFX.getApplicationContext()::getBean);
+        fxmlLoader.setControllerFactory(getApplicationContext()::getBean);
         return fxmlLoader.load();
     }
 
