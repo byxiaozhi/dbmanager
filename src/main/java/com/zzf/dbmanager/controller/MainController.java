@@ -2,6 +2,7 @@ package com.zzf.dbmanager.controller;
 
 import com.zzf.dbmanager.service.ConnectionService;
 import com.zzf.dbmanager.service.EventEmitter;
+import com.zzf.dbmanager.service.WindowService;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -22,10 +23,12 @@ public class MainController {
     TreeView<String> connectionsTree;
 
     EventEmitter eventEmitter;
+    WindowService windowService;
     ConnectionService connectionService;
 
-    public MainController(EventEmitter eventEmitter, ConnectionService connectionService) {
+    public MainController(EventEmitter eventEmitter, WindowService windowService, ConnectionService connectionService) {
         this.eventEmitter = eventEmitter;
+        this.windowService = windowService;
         this.connectionService = connectionService;
     }
 
@@ -60,19 +63,11 @@ public class MainController {
 
     @FXML
     protected void openAboutWindow(Event event) throws IOException {
-        openModelWindow(
-                ((Node) event.getSource()).getScene().getWindow(),
-                "about",
-                "关于"
-        );
+        windowService.openAboutWindow(((Node) event.getSource()).getScene().getWindow());
     }
 
     @FXML
     protected void openNewConnectionWindow(Event event) throws IOException {
-        openModelWindow(
-                ((Node) event.getSource()).getScene().getWindow(),
-                "newConnection",
-                "新建连接"
-        );
+        windowService.openNewConnectionWindow(((Node) event.getSource()).getScene().getWindow());
     }
 }
